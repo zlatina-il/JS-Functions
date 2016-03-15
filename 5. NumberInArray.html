@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <title>How many times number apears in array</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+        <label for="tb-number">Number</label>
+        <input id="tb-number" type="text" class="js-console-input" />
+        <a href="#" class="js-console-btn" onclick="BtnClick()">Check!</a>
+        <br />
+        <div id="js-console">The array is [1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8]</div>
+        <script src="scripts/js-console.js"></script>
+        <script>
+            function BtnClick() {
+                var number = jsConsole.readFloat("#tb-number");
+                var newArray = [1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8];
+                var count = 0;
+                for (var i = 0; i <= newArray.length-1; i++) {
+                    if (number == newArray[i])
+                    {
+                        count++;
+                    
+                    }
+                }
+                jsConsole.writeLine("Count is:"+count);
+            }
+        </script>
+</body>
+</html>

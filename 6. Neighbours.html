@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Neighbours</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="content">
+        <div id="input">
+            <label for="tb-input">Enter index:</label>
+            <input type="text" id="tb-input" />
+        </div>
+        <div id="button">
+            <a href="#" onclick="checkIsBiggerThanNeighbours()">Check</a>
+        </div>
+    </div>
+    
+    <div id="js-console">The array is [1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8]</div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function checkIsBiggerThanNeighbours()
+        {
+            var arr = new Array(1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8);
+            var position = jsConsole.readInteger("#tb-input");
+            var isBigger = false;
+
+            if (position > arr.length - 1 || position < 0 || isNaN(position))
+            {
+                jsConsole.writeLine("There is no such index " + position + " in this array!");
+            }
+            else if (arr.length == 1)
+            {
+                jsConsole.writeLine("The array has only one member!");
+            }
+            else if (position == 0)
+            {
+                if (arr[position] > arr[position + 1])
+                {
+                    isBigger = true;
+                }
+
+                jsConsole.writeLine("The number " + arr[position] + " of position " + position + " has only one neighbour /right-oriented/. Is the number Bigger than his neighbour? " + isBigger);
+            }
+            else if (position == arr.length - 1)
+            {
+                if (arr[position] > arr[position - 1])
+                {
+                    isBigger = true;
+                }
+
+                jsConsole.writeLine("The number " + arr[position] + " of position " + position + " has only one neighbour /left-oriented/. Is the number Bigger than his neighbour? " + isBigger);
+            }
+            else if (arr[position] > arr[position - 1] && arr[position] > arr[position + 1])
+            {
+                isBigger = true;
+                jsConsole.writeLine("The number " + arr[position] + " of position " + position + " has two neighbours. Is the number Bigger than his neighbours? " + isBigger);
+            }
+            else
+            {
+                jsConsole.writeLine("The number " + arr[position] + " of position " + position + " has two neighbours. Is the number Bigger than his neighbours? " + isBigger);;
+            }
+        }
+        </script>
+</body>
+</html>

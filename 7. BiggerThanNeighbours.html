@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <title>Bigger than neighbours</title>
+        <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+        <div id="js-console">The array[1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8]</div>
+        <script src="scripts/js-console.js"></script>
+        <script>
+            var index = FirstBiggerNeighbour();
+            jsConsole.writeLine(index);
+            function FirstBiggerNeighbour() {
+                var arr = [1,25,2,2,8,2,8,2,7,9,6,1,4,8,9,4,8];
+                for (var i = 1; i < arr.length-2; i++) {
+                    if (arr[i]> arr[i-1] && arr[i]>arr[i+1])
+                    {
+                        jsConsole.writeLine("The first bigger neighbour has index " + i + " in the array!");
+                        return;
+                    break;
+                    }
+                }
+                return -1;           
+            }
+        </script>
+</body>
+</html>

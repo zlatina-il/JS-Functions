@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>OccurrencesOfAWord</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var text = "We are living in an yellow submarine. In the sky there are no clouds. So we are drinking all the day. We will move out of it in 5 days.";
+        var word = " in ";
+        var isCaseSensitive = false;
+
+        OccurrencesOfAWord(text, word);
+        OccurrencesOfAWord(text, word, true);
+
+        function OccurrencesOfAWord(text, word, isCaseSensitive) 
+        {
+            isCaseSensitive = isCaseSensitive || false;
+            var countSearchedWord = 0;
+
+            if (isCaseSensitive === false) 
+            {
+                var strArr = text.split(word); 
+                for (var str in strArr) 
+                {
+                    countSearchedWord++;
+                }
+                jsConsole.writeLine("The count of word " + word + " case-insensitive search is: " + countSearchedWord)
+            }
+            else 
+            {
+                var index = text.indexOf(word);
+                while (index >= 0) 
+                {
+                    countSearchedWord++;
+                    index = text.indexOf(word, index+1);
+                }
+                jsConsole.writeLine("The count of word " + word + " (case-sensitive search is: " + countSearchedWord)
+            }
+        }
+    </script>
+</body>
+</html>

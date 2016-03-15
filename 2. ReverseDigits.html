@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reverse Digits</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+     <div id="content">
+        <div id="input">
+            <label for="tb-numbers">Enter a number:</label>
+            <input type="text" id="tb-numbers" />
+        </div>
+        <div id="button">
+            <a href="#" onclick="Reverse()">Reverse</a>
+        </div>
+    </div>
+    
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        function Reverse()
+        {
+            var input = jsConsole.readInteger("#tb-numbers");
+            ReverseDigits(input);
+        }
+
+        function ReverseDigits(number)
+        {
+            var output = "";
+            var inputStr = number.toString();
+
+            jsConsole.writeLine("Your number is: " + number);
+
+            for (var i = 0; i < inputStr.length; i++)
+            {
+                output += number % 10;
+                number = Math.floor(number/10);
+            }
+
+            jsConsole.writeLine("The reversed number is " + output);
+        }
+    </script>
+</body>
+</html>
